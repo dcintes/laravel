@@ -2,6 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ApiNoticies;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -17,3 +19,8 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('/noticies/{page}', [ApiNoticies::class, 'noticies']);
+Route::get('/noticia/{id}', [ApiNoticies::class, 'noticia']);
+Route::get('/categoria/{id}/{page}', [ApiNoticies::class, 'categoria']);
+Route::get('/autor/{id}/{page}', [ApiNoticies::class, 'autor']);
