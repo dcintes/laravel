@@ -4,6 +4,10 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 
+use App\Models\Autor;
+use App\Models\Categoria;
+use App\Models\Noticia;
+
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -13,6 +17,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        Autor::factory()->count(5)->create();
+        Categoria::factory()->count(15)->create();
+        Noticia::factory()->count(100)->create();
     }
 }

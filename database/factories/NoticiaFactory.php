@@ -24,6 +24,7 @@ class NoticiaFactory extends Factory
     public function definition()
     {
         return [
+            'titol' => $this->faker->sentence(),
             'data_publicacio' => $this->faker->dateTimeBetween('-1 year','-1 days'),
             'contingut' => $this->faker->text(2000),
             'url_imatge' => $this->faker->imageUrl(640, 480, 'animals', true),

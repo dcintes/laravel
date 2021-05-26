@@ -11,7 +11,7 @@ class ApiNoticies extends Controller
 
     public function noticies($page){
         $skip = ($page -1) * $this->elements_page;
-        return Noticia::skip($skip)->take($this->elements_page)->get();
+        return Noticia::select('titol','id','data_publicacio')->skip($skip)->take($this->elements_page)->get();
     }
 
     public function noticia($id){
@@ -20,11 +20,11 @@ class ApiNoticies extends Controller
 
     public function categoria($id,$page){
         $skip = ($page -1) * $this->elements_page;
-        return Noticia::where('categoria_id', $id)->skip($skip)->take($this->elements_page)->get();
+        return Noticia::select('titol','id','data_publicacio')->where('categoria_id', $id)->skip($skip)->take($this->elements_page)->get();
     }
 
     public function autor($id,$page){
         $skip = ($page -1) * $this->elements_page;
-        return Noticia::where('autor_id', $id)->skip($skip)->take($this->elements_page)->get();
+        return Noticia::select('titol','id','data_publicacio')->where('autor_id', $id)->skip($skip)->take($this->elements_page)->get();
     }
 }
